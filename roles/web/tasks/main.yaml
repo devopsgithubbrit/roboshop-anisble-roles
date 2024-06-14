@@ -1,5 +1,5 @@
 - name: install nginx
-    ansible.builtin.dnf:
+  ansible.builtin.dnf:
       name: nginx 
       state: present
   
