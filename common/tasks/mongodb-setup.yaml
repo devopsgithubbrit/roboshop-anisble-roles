@@ -18,9 +18,9 @@
   register: users_count
   when: component == "user"
 
-# - name: print the count
-#   ansible.builtin.debug:
-#     msg: "entries count: {{entries_count}}"
+- name: print the count
+  ansible.builtin.debug:
+    msg: "entries count: {{entries_count}}"
 
 - name: "load catalogue data"
   ansible.builtin.shell: "mongo --host {{MONGODB_HOST}} < /app/schema/{{component}}.js"
@@ -30,4 +30,4 @@
 - name: "load user data"
   ansible.builtin.shell: "mongo --host {{MONGODB_HOST}} < /app/schema/{{component}}.js"
   when: component == "user" and users_count.stdout == "0"  
-  # ignore_errors: true
+  ignore_errors: true
