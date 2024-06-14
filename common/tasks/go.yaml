@@ -10,4 +10,4 @@
   - go get
   - go build
   args:
-    chdir: /app 134
+    chdir: /app
